@@ -6,6 +6,8 @@
   --muted: #6b7280;
   --white: #ffffff;
   --line: #d7dbe2;
+  --site-width: min(90%, 1440px);
+  --content-pad: clamp(16px, 2vw, 28px);
 }
 
 * {
@@ -19,6 +21,7 @@ body {
   color: var(--text);
   background: var(--bg);
   line-height: 1.8;
+  overflow-x: hidden;
 }
 
 header {
@@ -30,13 +33,14 @@ header {
 }
 
 .nav-container {
-  max-width: 1120px;
+  width: var(--site-width);
+  max-width: 1440px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-height: 72px;
-  padding: 10px 18px;
+  padding: 10px var(--content-pad);
 }
 
 .logo {
@@ -69,9 +73,10 @@ nav a:hover,
 nav a.active { background: rgba(255, 255, 255, 0.22); }
 
 main {
-  max-width: 1120px;
-  margin: 22px auto 0;
-  padding: 0 18px 36px;
+  width: var(--site-width);
+  max-width: 1440px;
+  margin: 24px auto 0;
+  padding: 0 0 42px;
 }
 
 .banner {
@@ -183,10 +188,10 @@ main {
 
 .section-card {
   background: var(--white);
-  border-radius: 8px;
-  margin-top: 24px;
-  padding: 26px 24px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 14px;
+  margin-top: 26px;
+  padding: clamp(22px, 2.4vw, 34px);
+  box-shadow: 0 10px 28px rgba(17, 24, 39, 0.07);
 }
 
 .decor-title {
@@ -245,8 +250,8 @@ main {
 
 .spot-item {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 18px;
+  grid-template-columns: minmax(260px, 32%) 1fr;
+  gap: clamp(18px, 2vw, 28px);
   align-items: center;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -304,9 +309,10 @@ footer {
 
 /* scenic page */
 .scenic-page {
-  max-width: 1120px;
-  margin: 22px auto 0;
-  padding: 0 18px 36px;
+  width: var(--site-width);
+  max-width: 1440px;
+  margin: 24px auto 0;
+  padding: 0 0 42px;
 }
 
 .scenic-hero {
@@ -315,7 +321,7 @@ footer {
   overflow: hidden;
   background:
     linear-gradient(120deg, rgba(144, 15, 22, 0.74), rgba(176, 23, 31, 0.42)),
-    url('../images/scenic-banner.jpg') center/cover no-repeat,
+    url('../images/风景/开州主景图.jpg') center/cover no-repeat,
     #d7dbe2;
   display: flex;
   align-items: center;
@@ -405,8 +411,10 @@ footer {
 }
 /* overview page */
 .overview-page {
-  max-width: 1120px;
-  margin: 22px auto 0;
+  width: var(--site-width);
+  max-width: 1440px;
+  margin: 24px auto 0;
+  padding: 0 0 42px;
 }
 
 .overview-banner {
@@ -420,7 +428,7 @@ footer {
   color: #fff;
   background:
     linear-gradient(120deg, rgba(176, 23, 31, 0.85), rgba(176, 23, 31, 0.38)),
-    url('../images/overview-banner.jpg') center/cover no-repeat,
+    url('../images/风景/开州城市与山水风貌.jpg') center/cover no-repeat,
     linear-gradient(135deg, #f3d6c8, #eec3c7 45%, #d7dce8);
 }
 
@@ -431,7 +439,7 @@ footer {
 
 .overview-grid {
   display: grid;
-  grid-template-columns: 35% 65%;
+  grid-template-columns: minmax(300px, 0.85fr) minmax(0, 1.55fr);
   gap: 22px;
 }
 
@@ -513,7 +521,7 @@ footer {
 
 .highlight-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -564,9 +572,10 @@ footer {
 
 /* food page */
 .food-page {
-  max-width: 1120px;
-  margin: 22px auto 0;
-  padding: 0 18px 36px;
+  width: var(--site-width);
+  max-width: 1440px;
+  margin: 24px auto 0;
+  padding: 0 0 42px;
 }
 
 .food-banner {
@@ -579,7 +588,7 @@ footer {
   margin-bottom: 24px;
   background:
     linear-gradient(120deg, rgba(176, 23, 31, 0.78), rgba(176, 23, 31, 0.25)),
-    url('../images/food-banner.jpg') center/cover no-repeat,
+    url('../images/饮食/开州乡村风味图片.jpg') center/cover no-repeat,
     linear-gradient(135deg, #fef3f2, #fff6ee);
 }
 
@@ -685,12 +694,12 @@ footer {
 
 /* homepage refresh */
 .banner {
-  border-radius: 12px;
+  border-radius: 16px;
   background: linear-gradient(135deg, #f9ddd5, #f8ede1);
 }
 
 .carousel-track {
-  height: clamp(380px, 40vw, 430px);
+  height: clamp(420px, 40vw, 560px);
 }
 
 .carousel-slide.is-placeholder {
@@ -796,25 +805,35 @@ footer {
   text-decoration: none;
 }
 
+.entry-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.entry-card .btn {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
 .entry-image {
   width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: 10px;
-  margin-bottom: 12px;
-  background-size: cover;
-  background-position: center;
+  height: clamp(200px, 16vw, 260px);
+  border-radius: 12px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8d4c7, #eef2e6);
 }
 
-.scenic-image.scenic-1 {
-  background-image: linear-gradient(135deg, rgba(245, 206, 188, 0.72), rgba(237, 238, 218, 0.68)), url('../images/scenic-hanfenghu.jpg');
+.entry-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
 }
 
-.scenic-image.scenic-2 {
-  background-image: linear-gradient(135deg, rgba(248, 211, 201, 0.72), rgba(243, 233, 217, 0.68)), url('../images/scenic-memorial.jpg');
-}
-
-.scenic-image.scenic-3 {
-  background-image: linear-gradient(135deg, rgba(244, 204, 192, 0.72), rgba(226, 237, 222, 0.68)), url('../images/scenic-xuebaoshan.jpg');
+.entry-card:hover .entry-image img {
+  transform: scale(1.045);
 }
 
 .section-actions,
@@ -855,4 +874,112 @@ footer {
   .three-cols {
     grid-template-columns: 1fr;
   }
+}
+
+
+/* unified wide layout and hero refinements */
+.scenic-hero,
+.overview-banner,
+.food-banner {
+  position: relative;
+  min-height: clamp(260px, 28vw, 380px);
+  border-radius: 16px;
+  box-shadow: 0 16px 36px rgba(72, 18, 22, 0.18);
+}
+
+.scenic-hero-overlay,
+.overview-banner-content,
+.food-banner-content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+}
+
+.scenic-hero h1,
+.overview-banner-content h1,
+.food-banner-content h1 {
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.2;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.42);
+}
+
+.overview-banner-subtitle,
+.food-banner-subtitle,
+.scenic-hero p {
+  color: rgba(255, 255, 255, 0.94);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.spot-card,
+.food-item-card,
+.feature-card,
+.recommend-card,
+.highlight-card,
+.route-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.spot-card:hover,
+.food-item-card:hover,
+.feature-card:hover,
+.recommend-card:hover,
+.highlight-card:hover,
+.route-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(130, 31, 28, 0.13);
+}
+
+footer {
+  width: var(--site-width);
+  max-width: 1440px;
+  margin: 0 auto;
+  border-top: 1px solid rgba(176, 23, 31, 0.14);
+}
+
+@media (min-width: 1280px) {
+  .spot-grid { gap: 26px; }
+  .food-list-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 900px) {
+  :root { --site-width: min(94%, 1440px); }
+
+  .overview-grid,
+  .media-row,
+  .reverse-row,
+  .spot-item,
+  .spot-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  :root { --site-width: calc(100% - 24px); }
+
+  .nav-container {
+    width: calc(100% - 24px);
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  main,
+  .scenic-page,
+  .overview-page,
+  .food-page {
+    margin-top: 14px;
+    padding-bottom: 28px;
+  }
+
+  .carousel-track { height: 340px; }
+  .carousel { min-height: 340px; }
+
+  .scenic-hero,
+  .overview-banner,
+  .food-banner {
+    min-height: 210px;
+    padding: 22px;
+  }
+
+  .entry-image { height: 220px; }
 }
